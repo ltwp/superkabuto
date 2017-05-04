@@ -4,22 +4,70 @@
       <meta charset="UTF-8">
         <title>SUPER KABUTO</title>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-        <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+
         <script>
 
-            $(document).ready(function(){
+        function setMargins() {
+          width = $(window).width();
+          containerWidth = $("#video_popup").width();
+          leftMargin = (width-containerWidth)/2;
+          $("#video_popup").css("left", leftMargin);
+        }
 
-            });
+        function setHeight() {
+          height = $(window).height();
+          containerHeight = $("#video_popup").height();
+          topMargin = (height-containerHeight)/2;
+          $("#video_popup").css("top", topMargin);
+        }
 
-        </script> -->
+        $(document).ready(function() {
+          setMargins();
+          setHeight();
+          $(window).resize(function() {
+            setMargins();
+            setHeight();
+          });
+
+          $('#flower_graphic').click(function(){
+            $('#video_popup').css('display','block');
+          });
+
+          $('#information').click(function(){
+            $('#video_popup').css('display','none');
+          })
+          $('#graphic').click(function(){
+            $('#video_popup').css('display','none');
+          })
+          $('#top_graphic').click(function(){
+            $('#video_popup').css('display','none');
+          })
+          $('#bottom_graphic').click(function(){
+            $('#video_popup').css('display','none');
+          })
+        });
+
+        </script>
 
         <!-- <link rel="stylesheet" type="text/css" href=".css"> -->
         <style>
 
-            *{}
+          @font-face {
+            font-family: "Grotesque9T";
+            src: url("GrotesqueNo9T.ttf");
+          }
+
+          ::selection{
+            background: white;
+          }
+
+            *{
+              box-sizing: border-box;
+            }
 
             body{
-              font-family: "GrotesqueNo9T";
+              font-family: "Grotesque9T", sans-serif;;
               background-color: rgb(254,240,53);
               font-size: 16pt;
               width: 100%;
@@ -34,25 +82,36 @@
               text-decoration: none;
             }
 
-            #top_graphic, #bottom_graphic, #graphic{
+            #top_graphic, #bottom_graphic, #flower_graphic, #graphic{
               width: 60vw;
               position: fixed;
               left: 0;
               text-align: center;
             }
 
-            #top_graphic img, #bottom_graphic img, #graphic img{
+            #top_graphic img, #bottom_graphic img, #flower_graphic img, #graphic img{
               width: 100%;
             }
 
             #top_graphic{
               top: 0;
-              z-index: 20;
+              z-index: 10;
+            }
+            #bottom_graphic{
+              z-index: 15;
             }
 
-            #bottom_graphic{
+            #bottom_graphic, #flower_graphic{
               bottom: 0;
-              z-index: 10;
+            }
+
+            #flower_graphic{
+              opacity: 1;
+              z-index: 20;
+            }
+            #flower_graphic:hover{
+              opacity: 0;
+              cursor: pointer;
             }
 
             #graphic{
@@ -75,11 +134,19 @@
               font-weight: bold;
               font-size: 17pt;
             }
-            #information h1,p{
+            #information h2, p, li{
               text-align: left;
             }
 
-            @media all and (max-width: 850px){
+            #video_popup{
+              height: 480px;
+              width: 853px;
+              position: fixed;
+              z-index: 100;
+              display: none;
+            }
+
+            @media all and (max-width: 900px), (orientation: portrait){
               /* FOR MOBILE */
               #information h1{
                 font-size: 35pt;
@@ -93,6 +160,10 @@
                 right: 2.5vw;
               }
 
+              #flower_graphic{
+                opacity: 0;
+              }
+
               #graphic{
                 display: block;
                 position: static;
@@ -103,12 +174,12 @@
               }
 
             }
-            @media all and (min-width: 850px){
+            @media all and (min-width: 900px){
               /* FOR DESKTOP */
-              #top_graphic, #bottom_graphic, #graphic{
+              #top_graphic, #bottom_graphic, #flower_graphic, #graphic{
                 text-align: center;
               }
-              #top_graphic img, #bottom_graphic img, #graphic img{
+              #top_graphic img, #bottom_graphic img, #flower_graphic img, #graphic img{
                 max-width: 1000px; /* 1000 */
               }
 
@@ -118,7 +189,7 @@
             }
 
             @media all and (max-height: 760px), (min-width: 1450px){
-              #bottom_graphic, #top_graphic{
+              #bottom_graphic, #top_graphic, #flower_graphic{
                 display: none;
               }
               #graphic{
@@ -136,6 +207,9 @@
       <div id="bottom_graphic">
         <img src='graphic_bottom.png'>
       </div>
+      <div id="flower_graphic">
+        <img src='flower.png'>
+      </div>
       <div id="graphic">
         <img src="graphic.png">
       </div>
@@ -145,32 +219,75 @@
           The Super Kabuto formula is one of the few cacti-specific fertilizers on the market today. Its growth-enhancing properties were selected for through extensive research and real-world experimentation by growers and collectors.
         </p>
         <img src="SK.jpg">
+        <h2>SUPER KABUTO 7-7-7</h2>
         <p>
-          <strong>THE FERTILIZER</strong>
+          Specialized formula, long rumored to be the fertilizer of choice at Japan’s top greenhouses, is used by renowned collectors worldwide.
         </p>
         <p>
-          The Super Kabuto formula is one of the few cacti-specific fertilizers on the market today. Its growth-enhancing properties were selected for through extensive research and real-world experimentation by growers and collectors.
+          Provide your cactus with the highest quality minerals for well-being & “super natural” growth.
         </p>
+        <h2>Product Highlights</h2>
+        <p>
+          Unique formulation specific to cacti (and succulents)
+          <ul>
+            <li>Balanced Nutrient Content,(N-P-K)</li>
+            <li>Complete Micronutrients + Trace Elements</li>
+            <li>Urea-free</li>
+          </ul>
+        </p>
+        <p>
+          Super-concentrated
+          <ul>
+            <li>Liquid fertilizer is more soluble, more stable, and contains fewer impurities than solid fertilizer</li>
+            <li>½ teaspoon per Gallon of H20 during grow season</li>
+            <li>Long lasting, no expiration date</li>
+          </ul>
+        </p>
+        <p>
+          Portable and Easy-to-Dose
+          <ul>
+            <li>Industrial /Nursery / “collector” grade fertilizer in a consumer-friendly size</li>
+            <li>Unique dropper-style dispenser</li>
+            <li>Small size prevents evaporation and oxidation</li>
+          </ul>
+        </p>
+
+        <p>
+          Super Kabuto 7-7-7 can be used on all your houseplants, even non-cacti and succulents.
+        </p>
+        <p>
+          Keep out of direct sunlight and freezing temperatures.
+        </p>
+        <p>
+          Certified by California Dept of Food and Agriculture<br />
+          Designed and Manufactured in California.
+        </p>
+
+        <h1><a href="https://shop.hotcactus.la/products/super-kabuto-fertilizer-1?col=tools">ORDER</a></h1>
+
+        <img src="placeholder.png">
+
+        <h2>Detailed Information</h2>
+
         <p>
           All plants require the macronutrients Nitrogen, Phosphorus, and Potassium. Fertilizers for different plants contain varying ratios of these compounds, where the number corresponds to the ratio of the compound per weight.
         </p>
         <p>
           Super Kabuto 7-7-7 contains a balanced 7% Nitrogen, 7% Phosphorus, and 7% Potassium, which is the optimal balance for cacti.
         </p>
-
-        <img src="cactus.jpg">
-
         <p>
-          Why Fertilize?
+          Nitrogen comes in three forms: ammonium, nitrate, and urea. Kabuto’s Nitrogen content comes from Ammonium (NH4) and Nitrate (NO3) and is Urea-free.
         </p>
         <p>
-          Whether in a field, or in an indoor pot, plants require essential minerals for optimal growth. Different minerals supply nutrients necessary for growth in different parts of the plants, including the stem, flowers, spines, and roots. Replenishing nutrients that have been depleted through plant growth is essential for sustaining	 healthy growth.
+          Ammonium is metabolized in the roots, while Nitrate is transported to the leaves and body of the plant – both components are key to healthy growth.
         </p>
         <p>
-          Most potting mixes contain few essential minerals for plants. Soils are often sterilized and lacking the microbes to break down organic matter.
+          Urea is naturally present in many soils, and is converted to ammonium by soil bacteria. Suitable for high nitrogen applications – heavy-feeding / leafy vegetables like tomatoes, broccoli, spinach – urea is used in commercial agriculture as a cheap and nutrient- dense nitrogen source. Due to the dangers of increasing soil acidity and burn potential, as well as the absence of soil bacteria in dryer soil mixes, urea is generally not recommended as an ingredient in fertilizer for cacti.
+        </p>
+        <p>
+          In addition the three main macronutrients, plants also require a trace amount micronutrients, including Calcium, Magnesium, Sulphur, Iron, and Cobalt. Some of these are found naturally in soil, and aren’t included in many consumer fertilizers. Kabuto provides all the necessary nutrients plants need, allowing cacti to grow even in hydroponic or inorganic growth mediums.
         </p>
 
-        <h1><a href="https://shop.hotcactus.la/products/super-kabuto-fertilizer-1?col=tools">ORDER</a></h1>
         <h1 style="cursor: pointer;">MORE INFO (PDF)</h1>
 
         <p>
@@ -183,6 +300,9 @@
         </p>
       </div>
 
+      <div id="video_popup">
+        <iframe width="853" height="480" src="https://www.youtube.com/embed/XO_zOcPG6SA?rel=0&amp;controls=0" frameborder="0" allowfullscreen></iframe>
+      </div>
 
     </body>
 </html>
