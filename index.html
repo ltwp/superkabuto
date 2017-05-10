@@ -5,7 +5,7 @@
         <title>SUPER KABUTO</title>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <script>
         function setMargins() {
           width = $(window).width();
@@ -181,7 +181,7 @@
               display: none;
             }
 
-            @media all and (max-width: 667px){
+            @media only screen and (max-width: 740px) and (orientation: portrait){
               /* FOR MOBILE */
               #information h1{
                 font-size: 35pt;
@@ -214,11 +214,8 @@
               }
 
             }
-            @media all and (min-width: 667px){
+            @media only screen and (min-width: 740px){ /* 667 */
               /* FOR DESKTOP */
-              #top_graphic, #bottom_graphic, #flower_graphic, #graphic{
-                text-align: center;
-              }
               #top_graphic img, #bottom_graphic img, #flower_graphic img, #graphic img{
                 max-width: 1000px; /* 1000 */
               }
@@ -228,7 +225,7 @@
               }
             }
 
-            @media all and (max-height: 760px), (min-width: 1700px){
+            @media only screen and (max-height: 760px), (min-width: 1700px){
               #bottom_graphic, #top_graphic{
                 display: none;
               }
